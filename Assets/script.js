@@ -1,6 +1,57 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+var timeBlock= document.getElementById('hour-9')
+var nineAmText= document.getElementById('9AM')
+var nineAmButton= document.getElementById('9amButton')
+
+var tenAmText= document.getElementById('10AM')
+var tenAmButton= document.getElementById('10amButton')
+
+
+
+
+
+var dayToday = dayjs().format("dddd")
+$("#Today").text(dayToday)
+var currentTime = dayjs().format('H')
+var updateCurrentDayjs = setInterval(function () {
+  currentTime = dayjs().format('H')
+  }, 3600000)
+  console.log(currentTime)
+
+function nineAM(){
+if(currentTime > '9'){
+  timeBlock.classList.add('past')
+if(currentTime == '9'){ 
+  timeBlock.classList.add('present')
+  }
+else{
+   timeBlock.classList.add('future')
+  }
+}
+}
+
+
+
+
+
+
+nineAmButton.addEventListener('click', function(){
+  localStorage.setItem('value1', nineAmText.value)
+  nineAM()
+})
+nineAmText.textContent = localStorage.getItem('value1')
+
+tenAmButton.addEventListener('click', function(){
+  localStorage.setItem('value2', tenAmText.value)
+  
+})
+tenAmText.textContent = localStorage.getItem('value2')
+
+
+
+
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
