@@ -8,6 +8,30 @@ var nineAmButton= document.getElementById('9amButton')
 var tenAmText= document.getElementById('10AM')
 var tenAmButton= document.getElementById('10amButton')
 
+var elevenAmText= document.getElementById('11AM')
+var elevenAmButton= document.getElementById('11amButton')
+
+var twelvePmText= document.getElementById('12PM')
+var twelvePmButton= document.getElementById('12pmButton')
+
+var onePmText= document.getElementById('1PM')
+var onePmButton= document.getElementById('1pmButton')
+
+var twoPmText= document.getElementById('2PM')
+var twoPmButton= document.getElementById('2pmButton')
+
+var threePmText= document.getElementById('3PM')
+var threePmButton= document.getElementById('3pmButton')
+
+var fourPmText= document.getElementById('4PM')
+var fourPmButton= document.getElementById('4pmButton')
+
+var fivePmText= document.getElementById('5PM')
+var fivePmButton= document.getElementById('5pmButton')
+
+
+
+
 
 
 
@@ -49,26 +73,44 @@ tenAmButton.addEventListener('click', function(){
 })
 tenAmText.textContent = localStorage.getItem('value2')
 
+elevenAmButton.addEventListener('click', function(){
+  localStorage.setItem('value3', elevenAmText.value)
+  
+})
+elevenAmText.textContent = localStorage.getItem('value3')
 
+twelvePmButton.addEventListener('click', function(){
+  localStorage.setItem('value4', twelvePmText.value)
+  
+})
+twelvePmText.textContent = localStorage.getItem('value4')
 
+onePmButton.addEventListener('click', function(){
+  localStorage.setItem('value5', onePmText.value)
+  
+})
+onePmText.textContent = localStorage.getItem('value5')
 
-$(function () {
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
-});
+twoPmButton.addEventListener('click', function(){
+  localStorage.setItem('value6', twoPmText.value)
+  
+})
+twoPmText.textContent = localStorage.getItem('value6')
+
+threePmButton.addEventListener('click', function(){
+  localStorage.setItem('value7', threePmText.value)
+  
+})
+threePmText.textContent = localStorage.getItem('value7')
+
+fourPmButton.addEventListener('click', function(){
+  localStorage.setItem('value8', fourPmText.value)
+  
+})
+fourPmText.textContent = localStorage.getItem('value8')
+
+fivePmButton.addEventListener('click', function(){
+  localStorage.setItem('value9', fivePmText.value)
+  
+})
+fivePmText.textContent = localStorage.getItem('value9')
