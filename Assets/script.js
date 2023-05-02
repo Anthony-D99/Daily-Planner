@@ -1,38 +1,33 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-var timeBlock= document.getElementById('hour-9')
-var nineAmText= document.getElementById('9AM')
-var nineAmButton= document.getElementById('9amButton')
 
-var tenAmText= document.getElementById('10AM')
-var tenAmButton= document.getElementById('10amButton')
+var nineAmText = $('#9AM')
+var nineAmButton = $('#9amButton')
 
-var elevenAmText= document.getElementById('11AM')
-var elevenAmButton= document.getElementById('11amButton')
+var tenAmText = $('#10AM')
+var tenAmButton = $('#10amButton')
 
-var twelvePmText= document.getElementById('12PM')
-var twelvePmButton= document.getElementById('12pmButton')
+var elevenAmText = $('#11AM')
+var elevenAmButton = $('#11amButton')
 
-var onePmText= document.getElementById('1PM')
-var onePmButton= document.getElementById('1pmButton')
+var twelvePmText = $('#12PM')
+var twelvePmButton = $('#12pmButton')
 
-var twoPmText= document.getElementById('2PM')
-var twoPmButton= document.getElementById('2pmButton')
+var onePmText = $('#1PM')
+var onePmButton = $('#1pmButton')
 
-var threePmText= document.getElementById('3PM')
-var threePmButton= document.getElementById('3pmButton')
+var twoPmText = $('#2PM')
+var twoPmButton = $('#2pmButton')
 
-var fourPmText= document.getElementById('4PM')
-var fourPmButton= document.getElementById('4pmButton')
+var threePmText = $('#3PM')
+var threePmButton = $('#3pmButton')
 
-var fivePmText= document.getElementById('5PM')
-var fivePmButton= document.getElementById('5pmButton')
+var fourPmText = $('#4PM')
+var fourPmButton = $('#4pmButton')
 
-
-
-
-
+var fivePmText = $('#5PM')
+var fivePmButton = $('#5pmButton')
 
 
 
@@ -41,76 +36,87 @@ $("#Today").text(dayToday)
 var currentTime = dayjs().format('H')
 var updateCurrentDayjs = setInterval(function () {
   currentTime = dayjs().format('H')
-  }, 3600000)
-  console.log(currentTime)
+}, 3600000)
+console.log(currentTime)
 
-function nineAM(){
-if(currentTime > '9'){
-  timeBlock.classList.add('past')
-if(currentTime == '9'){ 
-  timeBlock.classList.add('present')
-  }
-else{
-   timeBlock.classList.add('future')
+function updateHourClass(hour, element) {
+  if (currentTime > hour) {
+    $(element).addClass("past")
+  } else if (currentTime == hour) {
+    $(element).addClass("present")
+    $(element).removeClass("past")
+  } else {
+    $(element).addClass('future')
+    $(element).removeClass("past")
+    $(element).removeClass("present")
   }
 }
-}
+
+updateHourClass(9, nineAmText);
+updateHourClass(10, tenAmText);
+updateHourClass(11, elevenAmText);
+updateHourClass(12, twelvePmText);
+updateHourClass(13, onePmText);
+updateHourClass(14, twoPmText);
+updateHourClass(15, threePmText);
+updateHourClass(16, fourPmText);
+updateHourClass(17, fivePmText);
 
 
 
+nineAmButton.on('click', function () {
+  localStorage.setItem('value1', nineAmText.val)
 
-
-
-nineAmButton.addEventListener('click', function(){
-  localStorage.setItem('value1', nineAmText.value)
-  nineAM()
 })
 nineAmText.textContent = localStorage.getItem('value1')
 
-tenAmButton.addEventListener('click', function(){
-  localStorage.setItem('value2', tenAmText.value)
-  
+tenAmButton.on('click', function () {
+  localStorage.setItem('value2', tenAmText.val)
+
 })
 tenAmText.textContent = localStorage.getItem('value2')
 
-elevenAmButton.addEventListener('click', function(){
-  localStorage.setItem('value3', elevenAmText.value)
-  
+elevenAmButton.on('click', function () {
+  localStorage.setItem('value3', elevenAmText.val)
+
 })
 elevenAmText.textContent = localStorage.getItem('value3')
 
-twelvePmButton.addEventListener('click', function(){
-  localStorage.setItem('value4', twelvePmText.value)
-  
+twelvePmButton.on('click', function () {
+  localStorage.setItem('value4', twelvePmText.val)
+
 })
 twelvePmText.textContent = localStorage.getItem('value4')
 
-onePmButton.addEventListener('click', function(){
-  localStorage.setItem('value5', onePmText.value)
-  
+onePmButton.on('click', function () {
+  localStorage.setItem('value5', onePmText.val)
+
 })
 onePmText.textContent = localStorage.getItem('value5')
 
-twoPmButton.addEventListener('click', function(){
-  localStorage.setItem('value6', twoPmText.value)
-  
+twoPmButton.on('click', function () {
+  localStorage.setItem('value6', twoPmText.val)
+
 })
 twoPmText.textContent = localStorage.getItem('value6')
 
-threePmButton.addEventListener('click', function(){
-  localStorage.setItem('value7', threePmText.value)
-  
+threePmButton.on('click', function () {
+  localStorage.setItem('value7', threePmText.val)
+
 })
 threePmText.textContent = localStorage.getItem('value7')
 
-fourPmButton.addEventListener('click', function(){
-  localStorage.setItem('value8', fourPmText.value)
-  
+fourPmButton.on('click', function () {
+  localStorage.setItem('value8', fourPmText.val)
+
 })
 fourPmText.textContent = localStorage.getItem('value8')
 
-fivePmButton.addEventListener('click', function(){
-  localStorage.setItem('value9', fivePmText.value)
-  
+fivePmButton.on('click', function () {
+  localStorage.setItem('value9', fivePmText.val)
+
 })
 fivePmText.textContent = localStorage.getItem('value9')
+
+
+
