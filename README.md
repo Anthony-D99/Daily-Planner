@@ -10,6 +10,6 @@ The user upon loading the webpage will be presented with a schedule planner that
 [Demo](./assets/Demo/05-third-party-apis-homework-demo.gif)
 
 # Link To Page
-
+https://anthony-d99.github.io/Daily-Planner/
 # Link To Repository
 https://github.com/Anthony-D99/Daily-Planner
